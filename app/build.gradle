@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -38,7 +40,10 @@ dependencies {
     implementation project(":domain")
     implementation project(":presentation")
 
-    // Material Design
-    implementation lib.materialDesign
+    // Hilt
+    implementation lib.hiltAndroidxViewModel
+    implementation lib.hiltAndroid
+    kapt lib.hiltCompiler
+    kapt lib.hiltAndroidCompiler
 
 }

@@ -1,4 +1,7 @@
 package com.splanes.randomuser.app
 
-class RandomUserApp {
-}
+import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
+
+@HiltAndroidApp
+class RandomUserApp : Application()

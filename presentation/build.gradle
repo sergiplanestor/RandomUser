@@ -1,9 +1,15 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-parcelize'
 }
 
 android {
+
+    // apply from: "../config.gradle"
+
     compileSdkVersion 31
     buildToolsVersion "30.0.3"
 
@@ -30,9 +36,34 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {
+        viewBinding true
+    }
+    kapt {
+        correctErrorTypes true
+    }
 }
 
 dependencies {
 
     implementation project(":domain")
+
+    // Hilt
+    implementation lib.hiltAndroidxViewModel
+    implementation lib.hiltAndroid
+    kapt lib.hiltCompiler
+    kapt lib.hiltAndroidCompiler
+
+    // Android X
+    implementation lib.androidxCore
+    implementation lib.androidxAppCompat
+    implementation lib.androidxConstraintLayout
+    implementation lib.androidxLifecycleLiveData
+    implementation lib.androidxLifecycleViewModel
+    implementation lib.androidxNavigationFragment
+    implementation lib.androidxNavigationUI
+
+    // Material Design
+    implementation lib.materialDesign
+
 }

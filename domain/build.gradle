@@ -1,6 +1,9 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -30,8 +33,22 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    kapt {
+        correctErrorTypes true
+    }
 }
 
 dependencies {
 
+    // Hilt
+    implementation lib.hiltAndroidxViewModel
+    implementation lib.hiltAndroid
+    kapt lib.hiltCompiler
+    kapt lib.hiltAndroidCompiler
+
+    // Android X
+    implementation lib.androidxCore
+
+    // Coroutines
+    implementation lib.kotlinCoroutines
 }

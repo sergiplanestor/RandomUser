@@ -2,4 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.splanes.presentation">
 
+    <application>
+        <activity
+            android:name=".feature.splash.SplashActivity"
+            android:exported="false"
+            android:theme="@style/Theme.RandomUser">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+    </application>
+
 </manifest>
