@@ -1,0 +1,78 @@
+ext {
+
+    apply from: "versions.gradle"
+
+    artifact = [
+            androidGradlePlugin      : "com.android.tools.build:gradle:${versions.androidGradlePlugin}",
+            kotlinGradlePlugin       : "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlinGradlePlugin}",
+            hiltGradle               : "com.google.dagger:hilt-android-gradle-plugin:${versions.hiltGradle}",
+    ]
+
+    lib = [
+            // Hilt
+            hiltAndroid               : "com.google.dagger:hilt-android:${versions.hilt}",
+            hiltCompiler              : "com.google.dagger:hilt-compiler:${versions.hilt}",
+            hiltTest                  : "com.google.dagger:hilt-android-testing:${versions.hilt}",
+            hiltAndroidCompiler       : "com.google.dagger:hilt-android-compiler:${versions.hilt}",
+            hiltAndroidxViewModel     : "androidx.hilt:hilt-lifecycle-viewmodel:${versions.androidxHiltViewModel}",
+            hiltAndroidxCompiler      : "androidx.hilt:hilt-compiler:${versions.androidxHiltCompiler}",
+
+            // Android X
+            androidxCore              : "androidx.core:core-ktx:${versions.androidxCore}",
+            androidxAppCompat         : "androidx.appcompat:appcompat:${versions.androidxAppCompat}",
+            androidxConstraintLayout  : "androidx.constraintlayout:constraintlayout:${versions.androidxConstraintLayout}",
+            androidxLifecycleLiveData : "androidx.lifecycle:lifecycle-livedata-ktx:${versions.androidxLifecycle}",
+            androidxLifecycleViewModel: "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.androidxLifecycle}",
+            androidxNavigationFragment: "androidx.navigation:navigation-fragment-ktx:${versions.androidxNavigation}",
+            androidxNavigationUI      : "androidx.navigation:navigation-ui-ktx:${versions.androidxNavigation}",
+            androidxSecurityCrypto    : "androidx.security:security-crypto:${versions.androidxSecurity}",
+            androidxSecurityCryptoKtx : "androidx.security:security-crypto-ktx:${versions.androidxSecurity}",
+
+            // Kotlin Coroutines
+            kotlinCoroutines          : "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.kotlinCoroutines}",
+
+            // Material design
+            materialDesign            : "com.google.android.material:material:${versions.materialDesign}",
+
+            // Gson
+            gson                      : "com.google.code.gson:gson:${versions.gson}",
+
+            // Lottie
+            lottie                    : "com.airbnb.android:lottie:${versions.lottie}",
+    ]
+
+    // Cross test-type
+    test = [
+            // Truth
+            truth: "androidx.test.ext:truth:${testing.androidxTest}"
+    ]
+
+    // Unit test
+    testUnit = [
+            // JUnit 5
+            junitBom: "org.junit:junit-bom:${testing.junitBom}",
+            junit5  : "org.junit.jupiter:junit-jupiter",
+
+            // MockK
+            mockK   : "io.mockk:mockk:${testing.mockK}"
+    ]
+
+    // Instrumental test
+    testIntegration = [
+            // JUnit 4
+            junit4             : "junit:junit:${testing.junit4}",
+
+            // Android X Test
+            androidxJUnitExt   : "androidx.test.ext:junit:${versions.androidxJUnitExt}",
+            androidxJUnitKtxExt: "androidx.test.ext:junit-ktx:${versions.androidxJUnitExt}",
+
+            // MockK
+            mockK              : "io.mockk:mockk-android:${testing.mockK}"
+    ]
+    testUI = [
+            // Espresso: Core + Accessibility
+            espressoCore         : "androidx.test.espresso:espresso-core:${testing.espresso}",
+            espressoAccessibility: "androidx.test.espresso:espresso-accessibility:${testing.espresso}"
+    ]
+
+}
