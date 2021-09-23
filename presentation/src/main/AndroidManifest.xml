@@ -5,7 +5,7 @@
     <application>
         <activity
             android:name=".feature.splash.SplashActivity"
-            android:exported="false"
+            android:exported="true"
             android:theme="@style/Theme.RandomUser">
 
             <intent-filter>
