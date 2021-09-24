@@ -15,6 +15,7 @@
 
     <!-- Text general dimens -->
     <dimen name="dimen_96sp">96sp</dimen>
+    <dimen name="dimen_70sp">70sp</dimen>
     <dimen name="dimen_60sp">60sp</dimen>
     <dimen name="dimen_48sp">48sp</dimen>
     <dimen name="dimen_34sp">34sp</dimen>

@@ -6,7 +6,7 @@
         <activity
             android:name=".feature.splash.SplashActivity"
             android:exported="true"
-            android:theme="@style/Theme.RandomUser">
+            android:theme="@style/Theme.RandomUser.NoActionBar">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

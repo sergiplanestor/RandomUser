@@ -66,4 +66,7 @@ dependencies {
     // Material Design
     implementation lib.materialDesign
 
+    // Lottie
+    implementation lib.lottie
+
 }
