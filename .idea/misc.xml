@@ -8,7 +8,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="presentation/src/main/res/drawable/ic_delete.xml" value="0.20925925925925926" />
+        <entry key="presentation/src/main/res/drawable/ic_mail.xml" value="0.20925925925925926" />
+        <entry key="presentation/src/main/res/drawable/ic_phone.xml" value="0.20925925925925926" />
+        <entry key="presentation/src/main/res/layout/activity_dashboard.xml" value="0.36302083333333335" />
         <entry key="presentation/src/main/res/layout/activity_splash.xml" value="0.36302083333333335" />
+        <entry key="presentation/src/main/res/layout/component_overview_user_view.xml" value="0.36302083333333335" />
         <entry key="presentation/src/main/res/layout/layout.xml" value="0.36302083333333335" />
       </map>
     </option>

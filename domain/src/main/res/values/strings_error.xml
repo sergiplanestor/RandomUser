@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="error_default_message">Oops! Seems that something went wrong. Try it later please!</string>
+
+</resources>

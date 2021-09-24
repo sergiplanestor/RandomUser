@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="image_thumbnail">@dimen/dimen_70dp</dimen>
+    <dimen name="image_large">@dimen/dimen_160dp</dimen>
+    <dimen name="image_default">@dimen/dimen_100dp</dimen>
+
+</resources>

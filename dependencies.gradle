@@ -49,7 +49,10 @@ ext {
             // Okhttp
             okhttp                    : "com.squareup.okhttp3:okhttp:${versions.okhttp3}",
             okhttpUrlConnection       : "com.squareup.okhttp3:okhttp-urlconnection:${versions.okhttp3}",
-            okhttpLogginInterceptor   : "com.squareup.okhttp3:logging-interceptor:${versions.okhttp3}"
+            okhttpLogginInterceptor   : "com.squareup.okhttp3:logging-interceptor:${versions.okhttp3}",
+
+            // Glide
+            glide                     : "com.github.bumptech.glide:glide:${versions.glide}"
     ]
 
     // Cross test-type

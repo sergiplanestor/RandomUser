@@ -6,6 +6,7 @@ import android.view.View
 import com.splanes.presentation.common.base.BaseActivity
 import com.splanes.presentation.common.util.fadeInOutCascade
 import com.splanes.presentation.databinding.ActivitySplashBinding
+import com.splanes.presentation.feature.dashboard.DashboardActivity
 
 class SplashActivity : BaseActivity<ActivitySplashBinding>(
     ActivitySplashBinding::inflate
@@ -36,9 +37,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(
             ),
             onEnd = {
                 Handler(Looper.getMainLooper()).postDelayed(
-                    {
-                        // TODO: Nav to dashboard
-                    },
+                    { DashboardActivity.start(activity = this) },
                     TRANSITION_DELAY
                 )
             }

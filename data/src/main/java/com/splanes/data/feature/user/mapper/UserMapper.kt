@@ -21,8 +21,8 @@ object UserMapper {
             surname = response.name?.last.orEmpty(),
             address = response.location?.let(::mapToAddress).orEmpty(),
             email = response.email.orEmpty(),
-            birthday = DateMapper.mapToDateModel(response.birthday).orEmpty(),
-            registeredOn = DateMapper.mapToDateModel(response.registeredOn).orEmpty(),
+            birthday = DateMapper.mapToDateModel(response.birthday?.date).orEmpty(),
+            registeredOn = DateMapper.mapToDateModel(response.registeredOn?.date).orEmpty(),
             phone = response.phone.orEmpty(),
             mobile = response.cell.orEmpty(),
             thumbnailUrl = response.picture?.thumbnail.orEmpty(),
@@ -32,6 +32,6 @@ object UserMapper {
         )
 
     private fun mapToAddress(response: UserLocationResponse): String =
-        "${response.street}${if(response.street != null) ", " else ""}${response.city}\n" +
+        "${response.street?.build()}${if(response.street?.build() != null) ", " else ""}${response.city}\n" +
         "${response.zipCode}${if(response.zipCode != null) ", " else ""}${response.state}"
 }

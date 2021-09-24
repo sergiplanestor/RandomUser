@@ -16,4 +16,8 @@
     <color name="text_secondary">@color/secondary_light</color>|
     <color name="text_secondary_accent">@color/secondary_accent</color>
 
+    <color name="red">@color/red_700</color>
+
+    <color name="screen_background">@color/blue_gray_200</color>
+
 </resources>

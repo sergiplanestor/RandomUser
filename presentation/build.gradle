@@ -69,4 +69,7 @@ dependencies {
     // Lottie
     implementation lib.lottie
 
+    // Glide
+    implementation lib.glide
+
 }

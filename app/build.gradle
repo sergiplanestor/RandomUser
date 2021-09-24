@@ -46,4 +46,7 @@ dependencies {
     kapt lib.hiltCompiler
     kapt lib.hiltAndroidCompiler
 
+    // Android X
+    implementation lib.androidxAppCompat
+
 }

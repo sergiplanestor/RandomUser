@@ -6,7 +6,7 @@ import java.util.*
 
 object DateMapper {
 
-    private const val RESPONSE_FORMAT = "YYYY-MM-DD HH:mm:ss"
+    private const val RESPONSE_FORMAT = "YYYY-MM-DD'T'HH:mm:ss.SSS'Z'"
     private const val MODEL_FORMAT = "dd/MM/YY"
 
     fun mapToDateModel(response: String?): DateModel? =

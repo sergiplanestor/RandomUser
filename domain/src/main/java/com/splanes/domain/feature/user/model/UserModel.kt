@@ -20,4 +20,10 @@ data class UserModel(
     val imageLargeUrl: String,
     val imageUrl: String,
     val nationality: String
-): Parcelable
+): Parcelable {
+
+    val completeName: String = "$name $surname"
+
+    val completeNameWithTitle: String = "$title $completeName"
+
+}
