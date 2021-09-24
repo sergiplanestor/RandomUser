@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Indigo -->
+    <color name="indigo_800">#283593</color>
+    
     <!-- Teal -->
     <color name="teal_600">#00897B</color>
     <color name="teal_800">#00695C</color>
+    <color name="teal_900">#004D40</color>
     <color name="teal_A400">#1DE9B6</color>
 
     <!-- Cyan -->
@@ -19,6 +23,7 @@
     <color name="light_blue_900">#01579B</color>
 
     <!-- Blue gray -->
+    <color name="blue_gray_200">#B0BEC5</color>
     <color name="blue_gray_500">#607D8B</color>
     <color name="blue_gray_700">#455A64</color>
     <color name="blue_gray_800">#37474F</color>
