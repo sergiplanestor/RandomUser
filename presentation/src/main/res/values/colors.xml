@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="primary">@color/light_blue_900</color>
+    <color name="primary_dark">@color/indigo_800</color>
+    <color name="primary_light">@color/light_blue_700</color>
+    <color name="primary_accent">@color/cyan_A700</color>
+
+    <color name="secondary">@color/blue_gray_800</color>
+    <color name="secondary_dark">@color/blue_gray_900</color>
+    <color name="secondary_light">@color/blue_gray_500</color>
+    <color name="secondary_accent">@color/white</color>
+
+    <color name="text_primary">@color/black</color>
+    <color name="text_primary_accent">@color/primary_light</color>
+    <color name="text_secondary">@color/secondary_light</color>|
+    <color name="text_secondary_accent">@color/secondary_accent</color>
+
+</resources>
