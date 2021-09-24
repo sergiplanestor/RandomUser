@@ -37,7 +37,10 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(
             ),
             onEnd = {
                 Handler(Looper.getMainLooper()).postDelayed(
-                    { DashboardActivity.start(activity = this) },
+                    {
+                        DashboardActivity.start(activity = this)
+                        finish()
+                    },
                     TRANSITION_DELAY
                 )
             }
