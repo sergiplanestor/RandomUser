@@ -30,7 +30,14 @@ ext {
             gson                     : "2.8.6",
 
             // Lottie
-            lottie                   : "3.5.0"
+            lottie                   : "3.5.0",
+
+            // Retrofit
+            retrofit                 : "2.9.0",
+            retrofitCoroutinesAdapter: "0.9.2",
+
+            // Okhttp3
+            okhttp3                  : "4.9.1"
     ]
 
     testing = [

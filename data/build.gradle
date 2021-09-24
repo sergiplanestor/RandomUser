@@ -17,6 +17,8 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+
+        buildConfigField "String", "RAND_USERS_BASE_URL", project.property('rand_users_api_base_url')
     }
 
     buildTypes {
@@ -43,6 +45,18 @@ dependencies {
     implementation lib.hiltAndroid
     kapt lib.hiltCompiler
     kapt lib.hiltAndroidCompiler
+
+    // Retrofit
+    implementation lib.retrofit
+    implementation lib.retrofitGsonConverter
+    implementation lib.retrofitRxAdapter
+    implementation lib.retrofitCoroutinesAdapter
+
+    // OkHttp
+    // Set as 'api' in order to let app module access to it and dagger can have visibility
+    api lib.okhttp
+    api lib.okhttpUrlConnection
+    api lib.okhttpLogginInterceptor
 
     // Android X
     implementation lib.androidxCore

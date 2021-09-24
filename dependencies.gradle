@@ -3,9 +3,9 @@ ext {
     apply from: "versions.gradle"
 
     artifact = [
-            androidGradlePlugin      : "com.android.tools.build:gradle:${versions.androidGradlePlugin}",
-            kotlinGradlePlugin       : "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlinGradlePlugin}",
-            hiltGradle               : "com.google.dagger:hilt-android-gradle-plugin:${versions.hiltGradle}",
+            androidGradlePlugin: "com.android.tools.build:gradle:${versions.androidGradlePlugin}",
+            kotlinGradlePlugin : "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlinGradlePlugin}",
+            hiltGradle         : "com.google.dagger:hilt-android-gradle-plugin:${versions.hiltGradle}",
     ]
 
     lib = [
@@ -39,6 +39,17 @@ ext {
 
             // Lottie
             lottie                    : "com.airbnb.android:lottie:${versions.lottie}",
+
+            // Retrofit
+            retrofit                  : "com.squareup.retrofit2:retrofit:${versions.retrofit}",
+            retrofitGsonConverter     : "com.squareup.retrofit2:converter-gson:${versions.retrofit}",
+            retrofitRxAdapter         : "com.squareup.retrofit2:adapter-rxjava2:${versions.retrofit}",
+            retrofitCoroutinesAdapter : "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${versions.retrofitCoroutinesAdapter}",
+
+            // Okhttp
+            okhttp                    : "com.squareup.okhttp3:okhttp:${versions.okhttp3}",
+            okhttpUrlConnection       : "com.squareup.okhttp3:okhttp-urlconnection:${versions.okhttp3}",
+            okhttpLogginInterceptor   : "com.squareup.okhttp3:logging-interceptor:${versions.okhttp3}"
     ]
 
     // Cross test-type
