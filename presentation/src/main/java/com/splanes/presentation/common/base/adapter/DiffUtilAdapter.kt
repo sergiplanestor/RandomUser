@@ -21,6 +21,7 @@ abstract class DiffUtilAdapter<T, V : View>(open val items: MutableList<T>) :
             iconRes = R.drawable.ic_undo,
             message = R.string.dashboard_undo_item_removed_msg,
             action = R.string.action_undo,
+            duration = SnackBar.Duration.Custom(3000),
             onActionClick = ::performUndoRemoved
         )
 

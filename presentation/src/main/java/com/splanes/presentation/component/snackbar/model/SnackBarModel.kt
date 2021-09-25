@@ -6,6 +6,7 @@ import androidx.annotation.IntDef
 import androidx.annotation.StringRes
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.splanes.presentation.R
+import com.splanes.presentation.component.snackbar.view.SnackBar
 
 class SnackBarModel private constructor(
     @DrawableRes val iconRes: Int,
@@ -13,7 +14,7 @@ class SnackBarModel private constructor(
     @StringRes val message: Int,
     @StringRes val action: Int? = null,
     @ColorRes val backgroundColorRes: Int,
-    @BaseTransientBottomBar.Duration val duration: Int,
+    val duration: SnackBar.Duration,
     val onActionClick: (() -> Unit)? = null,
     val onClick: () -> Unit = {},
     val onDismiss: () -> Unit = {}
@@ -27,7 +28,7 @@ class SnackBarModel private constructor(
             @ColorRes backgroundColorRes: Int = R.color.secondary_light,
             @StringRes message: Int,
             @StringRes action: Int? = null,
-            @BaseTransientBottomBar.Duration duration: Int = BaseTransientBottomBar.LENGTH_SHORT,
+            duration: SnackBar.Duration = SnackBar.Duration.Long,
             onActionClick: (() -> Unit)? = null,
             onClick: () -> Unit = {},
             onDismiss: () -> Unit = {}
@@ -48,7 +49,7 @@ class SnackBarModel private constructor(
             isPositive: Boolean,
             @StringRes message: Int,
             @StringRes action: Int? = null,
-            @BaseTransientBottomBar.Duration duration: Int = BaseTransientBottomBar.LENGTH_LONG,
+            duration: SnackBar.Duration = SnackBar.Duration.Long,
             onActionClick: (() -> Unit)? = null,
             onClick: () -> Unit = {},
             onDismiss: () -> Unit = {}

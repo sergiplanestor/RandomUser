@@ -10,7 +10,9 @@ import com.splanes.presentation.component.user.OverviewUserView
 
 class UserAdapter(
     override val items: MutableList<UserModel>,
-    private val onClick: (UserModel) -> Unit
+    private val onClick: (UserModel) -> Unit,
+    private val onRemove: (UserModel) -> Unit,
+    private val onUndoRemove: (UserModel) -> Unit
 ) : DiffUtilAdapter<UserModel, OverviewUserView>(items) {
 
     companion object {
@@ -28,7 +30,14 @@ class UserAdapter(
         }
 
     override fun onBindView(view: OverviewUserView, position: Int) {
-        view.bind(items[position], onClick, onRemoveClick = { remove(position) })
+        view.bind(
+            items[position],
+            onClick,
+            onRemoveClick = {
+                onRemove.invoke(items[position])
+                remove(position)
+            }
+        )
         if (!isAnimationDone && position == 0) {
             view.bounce(ANIM_DELAY)
             isAnimationDone = true
@@ -44,5 +53,10 @@ class UserAdapter(
     override fun update(newData: List<UserModel>) {
         isAnimationDone = false
         super.update(newData)
+    }
+
+    override fun performUndoRemoved() {
+        super.performUndoRemoved()
+        recentlyRemoved?.second?.let(onUndoRemove::invoke)
     }
 }

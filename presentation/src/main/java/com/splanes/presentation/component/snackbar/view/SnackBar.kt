@@ -14,6 +14,13 @@ class SnackBar(
     content: SnackBarContentView
 ) : BaseTransientBottomBar<SnackBar>(parent, content, content) {
 
+    sealed class Duration(open val value: Int) {
+        object Indefinite : Duration(LENGTH_INDEFINITE)
+        object Short : Duration(LENGTH_SHORT)
+        object Long : Duration(LENGTH_LONG)
+        data class Custom(val millis: Int): Duration(millis)
+    }
+
     init {
         getView().apply {
             setBackgroundColor(context.getColor(android.R.color.transparent))
@@ -32,7 +39,7 @@ class SnackBar(
             val content = SnackBarContentView(viewGroup.context).apply { bind(model) }
 
             SnackBar(viewGroup, content).apply {
-                duration = model.duration
+                duration = model.duration.value
                 content.setOnClickListener {
                     model.onClick.invoke()
                     dismiss()
@@ -41,7 +48,7 @@ class SnackBar(
 
             Handler(Looper.getMainLooper()).postDelayed(
                 { model.onDismiss.invoke() },
-                model.duration.toLong()
+                model.duration.value.toLong()
             )
         }
     }

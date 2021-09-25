@@ -2,11 +2,14 @@ package com.splanes.presentation.common.base
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
 import com.splanes.presentation.R
 import com.splanes.presentation.common.util.viewbinding.InflateViewBindingActivity
 import com.splanes.presentation.common.util.viewbinding.inflateViewBinding
+import com.splanes.presentation.component.snackbar.model.SnackBarModel
+import com.splanes.presentation.component.snackbar.view.SnackBar
 
 abstract class BaseActivity<VB : ViewBinding>(
     inflate: InflateViewBindingActivity<VB>
@@ -69,6 +72,26 @@ abstract class BaseActivity<VB : ViewBinding>(
 
     protected open fun onSaveChanges() {
         // Nothing to do here
+    }
+
+    protected open fun showFeedback(
+        isPositive: Boolean,
+        isIndefinite: Boolean = false,
+        @StringRes messageRes: Int,
+        duration: Int = 5000
+    ) {
+        SnackBar.show(
+            binding.root,
+            SnackBarModel.buildResult(
+                isPositive = isPositive,
+                message = messageRes,
+                duration = if (isIndefinite) {
+                    SnackBar.Duration.Indefinite
+                } else {
+                    SnackBar.Duration.Custom(duration)
+                }
+            )
+        )
     }
 
     private fun overrideTransition() {

@@ -15,26 +15,28 @@ inline fun View.fadeInOut(
     interpolator: TimeInterpolator = AccelerateDecelerateInterpolator(),
     startDelay: Long = 0,
     crossinline onStart: () -> Unit = {},
-    crossinline onEnd: () -> Unit = {}
+    crossinline onCancel: () -> Unit = {},
+    crossinline onEnd: () -> Unit = {},
+    noinline onUpdated: ((Float) -> Unit)? = null,
 ): ViewPropertyAnimator {
-    val alphaStart = (if (isShowing) 0f else 1f).also { alpha = it }
-    val alphaEnd = if (isShowing) 1f else 0f
-    return this.animate().alpha(alphaEnd).apply {
+    val alphaAtStart = if (isShowing) 0f else 1f
+    return this.animate().alpha(1f - alphaAtStart).apply {
         this.duration = duration
         this.interpolator = interpolator
         if (startDelay > 0) this.startDelay = startDelay
-        setUpdateListener {
-            when (it.animatedValue as Float) {
-                alphaStart -> {
-                    if (isShowing) isVisible = true
-                    onStart()
-                }
-                alphaEnd -> {
-                    if (!isShowing) isVisible = false
-                    onEnd()
-                }
-            }
-        }
+        applyListeners(
+            onStart = {
+                alpha = alphaAtStart
+                if (isShowing) isVisible = true
+                onStart()
+            },
+            onEnd = {
+                if (!isShowing) isVisible = false
+                onEnd()
+            },
+            onCancel = onCancel,
+            onValueUpdated = onUpdated
+        )
     }.also { it.start() }
 }
 

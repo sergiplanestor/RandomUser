@@ -74,7 +74,7 @@
                 style="@style/Icon.Small"
                 android:src="@drawable/ic_delete"
                 android:tint="@color/red_error_accent"
-                app:tint="@color/red_error_accent"
+                app:tint="@color/selector_icon_error_tint"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
