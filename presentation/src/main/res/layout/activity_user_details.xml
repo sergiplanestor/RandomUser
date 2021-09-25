@@ -23,7 +23,6 @@
                 android:layout_height="@dimen/dimen_0dp"
                 android:layout_marginBottom="@dimen/margin_big"
                 android:scaleType="centerCrop"
-                android:transitionName="@string/user_details_img_transition"
                 app:layout_constraintBottom_toTopOf="@id/user_complete_name_view"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
