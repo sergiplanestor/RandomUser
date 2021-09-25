@@ -18,6 +18,9 @@
         <activity android:name=".feature.dashboard.DashboardActivity"
             android:theme="@style/Theme.RandomUser"/>
 
+        <activity android:name=".feature.detail.UserDetailActivity"
+            android:theme="@style/Theme.RandomUser.NoActionBar.Translucent"/>
+
     </application>
 
 </manifest>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="user_gender_male">Male</string>
+    <string name="user_gender_female">Female</string>
+    <string name="user_gender_unknown">Unknown</string>
+
+</resources>

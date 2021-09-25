@@ -15,6 +15,7 @@ import com.splanes.presentation.common.util.observe
 import com.splanes.presentation.common.util.view.addOnScrollStateChanged
 import com.splanes.presentation.databinding.ActivityDashboardBinding
 import com.splanes.presentation.feature.dashboard.adapter.UserAdapter
+import com.splanes.presentation.feature.detail.UserDetailActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -63,6 +64,6 @@ class DashboardActivity : BaseActivity<ActivityDashboardBinding>(
     }
 
     private fun onUserClick(model: UserModel) {
-
+        UserDetailActivity.start(this, model)
     }
 }

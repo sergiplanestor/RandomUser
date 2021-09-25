@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_layout"
+        style="@style/Card.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="@dimen/margin_extra"
+        android:layout_marginVertical="@dimen/dimen_70dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/user_img_view"
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="@dimen/dimen_0dp"
+                android:layout_marginBottom="@dimen/margin_big"
+                android:scaleType="centerCrop"
+                android:transitionName="@string/user_details_img_transition"
+                app:layout_constraintBottom_toTopOf="@id/user_complete_name_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/close_button"
+                style="@style/Icon"
+                android:layout_margin="@dimen/margin_medium"
+                android:src="@drawable/ic_close"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/user_complete_name_view"
+                style="@style/Text.WidthConstraint"
+                android:layout_marginHorizontal="@dimen/margin_default"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.Headline4"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias=".55"
+                tools:text="Sergi Planes Tor" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/user_gender_view"
+                style="@style/Text.SingleLine.WidthConstraint"
+                android:layout_marginHorizontal="@dimen/margin_default"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:gravity="center_vertical"
+                android:textAppearance="@style/TextAppearance.Body1"
+                app:layout_constraintBottom_toTopOf="@id/user_email_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_complete_name_view"
+                app:layout_constraintVertical_chainStyle="spread"
+                tools:drawableStart="@drawable/ic_gender_male"
+                tools:text="Male" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/user_email_view"
+                style="@style/Text.SingleLine.WidthConstraint"
+                android:layout_marginHorizontal="@dimen/margin_default"
+                android:layout_marginTop="@dimen/margin_small"
+                android:drawableStart="@drawable/ic_mail"
+                android:gravity="center_vertical"
+                android:textAppearance="@style/TextAppearance.Body1"
+                app:layout_constraintBottom_toTopOf="@id/user_address_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_gender_view"
+                tools:text="sergi.planestor@gmail.com" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/user_address_view"
+                style="@style/Text.WidthConstraint"
+                android:layout_marginHorizontal="@dimen/margin_default"
+                android:layout_marginTop="@dimen/margin_small"
+                android:drawableStart="@drawable/ic_home"
+                android:gravity="center_vertical"
+                android:textAppearance="@style/TextAppearance.Body1"
+                app:layout_constraintBottom_toTopOf="@id/user_registered_date_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_email_view"
+                tools:text="Ripollès 44, Barcelona 08026" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/user_registered_date_view"
+                style="@style/Text.SingleLine.WidthConstraint"
+                android:layout_marginHorizontal="@dimen/margin_default"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginBottom="@dimen/margin_medium"
+                android:drawableStart="@drawable/ic_date"
+                android:gravity="center_vertical"
+                android:textAppearance="@style/TextAppearance.Body1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_address_view"
+                tools:text="25/09/2021" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
