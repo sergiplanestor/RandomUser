@@ -7,12 +7,15 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-class GetUsersUseCase @Inject constructor(private val repository: UserRepository) {
+class InsertUserUseCase @Inject constructor(private val repository: UserRepository) {
 
-    suspend operator fun invoke(): Flow<Response<List<UserModel>>> =
+    suspend operator fun invoke(params: Params): Flow<Response<Unit>> =
         flow {
             emit(Response.Loading())
-            emit(repository.getUsers())
+            emit(repository.insertUser(params.user))
         }
 
+    data class Params(val user: UserModel)
+
 }
+

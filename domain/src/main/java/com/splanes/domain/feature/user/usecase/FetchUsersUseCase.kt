@@ -7,12 +7,12 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-class GetUsersUseCase @Inject constructor(private val repository: UserRepository) {
+class FetchUsersUseCase @Inject constructor(private val repository: UserRepository) {
 
     suspend operator fun invoke(): Flow<Response<List<UserModel>>> =
         flow {
             emit(Response.Loading())
-            emit(repository.getUsers())
+            emit(repository.fetchUsers())
         }
 
 }

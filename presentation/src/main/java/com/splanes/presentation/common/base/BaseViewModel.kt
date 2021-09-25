@@ -13,11 +13,11 @@ import kotlin.coroutines.CoroutineContext
 
 abstract class BaseViewModel : ViewModel(), CoroutineScope {
 
-    private val loaderMutableObservable = MutableLiveData<Unit>()
-    protected open val loaderObservable: LiveData<Unit> get() = loaderMutableObservable
+    private val loaderMutableObservable = MutableLiveData<Boolean>()
+    open val loaderObservable: LiveData<Boolean> get() = loaderMutableObservable
 
     private val failureMutableObservable = MutableLiveData<Int>()
-    protected open val failureObservable: LiveData<Int> get() = failureMutableObservable
+    open val failureObservable: LiveData<Int> get() = failureMutableObservable
 
     private val job: Job = Job()
 
@@ -30,7 +30,7 @@ abstract class BaseViewModel : ViewModel(), CoroutineScope {
     }
 
     protected fun <T> launch(
-        onLoading: () -> Unit = ::onLoadingDefault,
+        onLoading: (Boolean) -> Unit = ::onLoadingDefault,
         onFailure: Throwable?.() -> Unit = ::onFailureDefault,
         onSuccess: T.() -> Unit,
         block: suspend () -> Flow<Response<T>>
@@ -49,18 +49,18 @@ abstract class BaseViewModel : ViewModel(), CoroutineScope {
     protected open fun <T> handleResponse(
         response: Response<T>,
         onSuccess: T.() -> Unit,
-        onLoading: () -> Unit,
+        onLoading: (Boolean) -> Unit,
         onFailure: Throwable?.() -> Unit
     ) {
         when (response) {
-            is Response.Failure -> onFailure(response.throwable)
-            is Response.Loading -> onLoading()
-            is Response.Success -> onSuccess(response.data)
+            is Response.Failure -> onFailure(response.throwable).also { onLoading(false) }
+            is Response.Success -> onSuccess(response.data).also { onLoading(false) }
+            is Response.Loading -> onLoading(true)
         }
     }
 
-    protected open fun onLoadingDefault() {
-        loaderMutableObservable.value = Unit
+    protected open fun onLoadingDefault(isLoaderVisible: Boolean) {
+        loaderMutableObservable.value = isLoaderVisible
     }
 
     protected open fun onFailureDefault(throwable: Throwable?) {
