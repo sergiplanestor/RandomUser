@@ -48,6 +48,7 @@
 
     <!-- black -->
     <color name="black">#FF000000</color>
+    <color name="black_opacity_50">#80000000</color>
 
     <!-- White -->
     <color name="white">#FFFFFFFF</color>
