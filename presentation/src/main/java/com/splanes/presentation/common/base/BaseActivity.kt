@@ -35,7 +35,7 @@ abstract class BaseActivity<VB : ViewBinding>(
         super.onResume()
         if (isFirstTime) {
             onLoadData()
-            isFirstTime = true
+            isFirstTime = false
         }
     }
 

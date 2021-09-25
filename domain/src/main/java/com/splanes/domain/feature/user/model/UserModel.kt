@@ -2,6 +2,7 @@ package com.splanes.domain.feature.user.model
 
 import android.os.Parcelable
 import com.splanes.domain.common.date.model.DateModel
+import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -22,8 +23,10 @@ data class UserModel(
     val nationality: String
 ): Parcelable {
 
+    @IgnoredOnParcel
     val completeName: String = "$name $surname"
 
+    @IgnoredOnParcel
     val completeNameWithTitle: String = "$title $completeName"
 
 }
