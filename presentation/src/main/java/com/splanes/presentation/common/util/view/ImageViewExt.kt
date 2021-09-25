@@ -1,5 +1,6 @@
-package com.splanes.presentation.common.util
+package com.splanes.presentation.common.util.view
 
+import android.graphics.drawable.Drawable
 import android.widget.ImageView
 import androidx.annotation.DrawableRes
 import com.bumptech.glide.Glide
@@ -28,4 +29,8 @@ fun ImageView.loadUrl(
         .run { placeholder?.let { placeholder(it) } ?: this }
         .run { error?.let { error(it) } ?: this }
         .into(this)
+}
+
+fun ImageView.drawableOrElse(drawable: Drawable?, block: ImageView.() -> Unit) {
+    drawable?.let { setImageDrawable(it) } ?: block()
 }

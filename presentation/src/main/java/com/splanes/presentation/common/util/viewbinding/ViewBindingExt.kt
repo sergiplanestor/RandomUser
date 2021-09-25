@@ -1,4 +1,4 @@
-package com.splanes.presentation.common.util
+package com.splanes.presentation.common.util.viewbinding
 
 import android.app.Activity
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
+import com.splanes.presentation.common.util.inflater
 
 typealias InflateViewBindingComponent<VB> = (LayoutInflater, ViewGroup?, Boolean) -> VB
 

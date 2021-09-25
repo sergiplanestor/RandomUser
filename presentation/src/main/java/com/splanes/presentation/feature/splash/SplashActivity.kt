@@ -1,10 +1,9 @@
 package com.splanes.presentation.feature.splash
 
-import android.os.Handler
-import android.os.Looper
 import android.view.View
 import com.splanes.presentation.common.base.BaseActivity
-import com.splanes.presentation.common.util.fadeInOutCascade
+import com.splanes.presentation.common.util.anim.fadeInOutCascade
+import com.splanes.presentation.common.util.scope.runDelayed
 import com.splanes.presentation.databinding.ActivitySplashBinding
 import com.splanes.presentation.feature.dashboard.DashboardActivity
 
@@ -36,15 +35,11 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(
                 LOTTIE_VIEW_ALPHA_DURATION
             ),
             onEnd = {
-                Handler(Looper.getMainLooper()).postDelayed(
-                    {
-                        DashboardActivity.start(activity = this)
-                        finish()
-                    },
-                    TRANSITION_DELAY
-                )
+                runDelayed(TRANSITION_DELAY) {
+                    DashboardActivity.start(activity = this)
+                    finish()
+                }
             }
-
         )
     }
 

@@ -9,11 +9,11 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/welcome_view"
-        style="@style/TextAppearance.Headline3"
-        android:layout_width="@dimen/dimen_0dp"
-        android:layout_height="wrap_content"
+        style="@style/Text.WidthConstraint"
+        android:textAppearance="@style/TextAppearance.Headline3"
         android:layout_marginTop="@dimen/margin_extra"
         android:gravity="center"
+        android:textAlignment="center"
         android:text="@string/welcome"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,11 +23,11 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/title_view"
-        style="@style/TextAppearance.Decorated"
-        android:layout_width="@dimen/dimen_0dp"
-        android:layout_height="wrap_content"
+        style="@style/Text.WidthConstraint"
+        android:textAppearance="@style/TextAppearance.Decorated"
         android:layout_marginTop="@dimen/margin_extra"
         android:gravity="center"
+        android:textAlignment="center"
         android:text="@string/app_name_pretty"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"

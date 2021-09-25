@@ -4,9 +4,9 @@ import android.content.Context
 import android.util.AttributeSet
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.splanes.domain.feature.user.model.UserModel
-import com.splanes.presentation.common.util.inflateViewBinding
-import com.splanes.presentation.common.util.textOrGone
-import com.splanes.presentation.common.util.thumbnail
+import com.splanes.presentation.common.util.view.textOrGone
+import com.splanes.presentation.common.util.view.thumbnail
+import com.splanes.presentation.common.util.viewbinding.inflateViewBinding
 import com.splanes.presentation.databinding.ComponentOverviewUserViewBinding
 
 class OverviewUserView @JvmOverloads constructor(
@@ -17,17 +17,13 @@ class OverviewUserView @JvmOverloads constructor(
 
     private val binding = inflateViewBinding(ComponentOverviewUserViewBinding::inflate)
 
-    fun bind(
-        model: UserModel,
-        onClick: (UserModel) -> Unit,
-        onSwipe: (UserModel) -> Unit
-    ) {
+    fun bind(model: UserModel, onClick: (UserModel) -> Unit, onRemoveClick: () -> Unit) {
         binding.userImgView.thumbnail(model.thumbnailUrl)
         binding.userCompleteNameView.textOrGone = model.completeName
         binding.userEmailView.textOrGone = model.email
         binding.userPhoneView.textOrGone = model.mobile
+        binding.buttonDelete.setOnClickListener { onRemoveClick.invoke() }
         binding.root.setOnClickListener { onClick.invoke(model) }
-        // TODO: Swipe
     }
 
 }

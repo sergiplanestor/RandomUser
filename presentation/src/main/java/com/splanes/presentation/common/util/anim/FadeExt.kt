@@ -1,9 +1,11 @@
-package com.splanes.presentation.common.util
+package com.splanes.presentation.common.util.anim
 
 import android.animation.TimeInterpolator
 import android.view.View
+import android.view.ViewPropertyAnimator
 import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.core.view.isVisible
+import com.splanes.presentation.common.util.list.popFirst
 
 const val FADE_ANIMATION_DEFAULT_DURATION = 500L
 
@@ -11,14 +13,16 @@ inline fun View.fadeInOut(
     isShowing: Boolean = isVisible.not(),
     duration: Long = FADE_ANIMATION_DEFAULT_DURATION,
     interpolator: TimeInterpolator = AccelerateDecelerateInterpolator(),
+    startDelay: Long = 0,
     crossinline onStart: () -> Unit = {},
     crossinline onEnd: () -> Unit = {}
-) {
+): ViewPropertyAnimator {
     val alphaStart = (if (isShowing) 0f else 1f).also { alpha = it }
     val alphaEnd = if (isShowing) 1f else 0f
-    this.animate().alpha(alphaEnd).apply {
-        setDuration(duration)
-        setInterpolator(interpolator)
+    return this.animate().alpha(alphaEnd).apply {
+        this.duration = duration
+        this.interpolator = interpolator
+        if (startDelay > 0) this.startDelay = startDelay
         setUpdateListener {
             when (it.animatedValue as Float) {
                 alphaStart -> {
@@ -31,7 +35,7 @@ inline fun View.fadeInOut(
                 }
             }
         }
-    }.start()
+    }.also { it.start() }
 }
 
 fun List<View>.fadeInOutCascade(

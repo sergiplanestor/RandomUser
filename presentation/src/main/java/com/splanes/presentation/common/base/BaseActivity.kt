@@ -5,8 +5,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
 import com.splanes.presentation.R
-import com.splanes.presentation.common.util.InflateViewBindingActivity
-import com.splanes.presentation.common.util.inflateViewBinding
+import com.splanes.presentation.common.util.viewbinding.InflateViewBindingActivity
+import com.splanes.presentation.common.util.viewbinding.inflateViewBinding
 
 abstract class BaseActivity<VB : ViewBinding>(
     inflate: InflateViewBindingActivity<VB>

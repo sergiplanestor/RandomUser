@@ -16,8 +16,13 @@
     <color name="text_secondary">@color/blue_gray_500</color>
     <color name="text_secondary_accent">@color/blue_gray_200</color>
 
-    <color name="red">@color/red_900</color>
+    <color name="red_error_background">@color/red_A100</color>
+    <color name="red_error_accent">@color/red_900</color>
+    <color name="green_success_background">@color/light_green_100</color>
+    <color name="green_success_accent">@color/green_600</color>
 
     <color name="screen_background">@color/blue_gray_800</color>
+
+    <color name="button_translucent_background">@color/blue_gray_200_opacity_70</color>
 
 </resources>

@@ -1,4 +1,4 @@
-package com.splanes.presentation.common.util
+package com.splanes.presentation.common.util.list
 
 fun <T> List<T>.popFirst(): List<T> =
     if (size > 1) {

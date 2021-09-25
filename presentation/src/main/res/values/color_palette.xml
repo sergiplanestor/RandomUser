@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Light Green -->
+    <color name="light_green_100">#DCEDC8</color>
+
+    <!-- Green -->
+    <color name="green_200">#A5D6A7</color>
+    <color name="green_A400">#00E676</color>
+    <color name="green_600">#43A047</color>
+
     <!-- Red -->
+    <color name="red_A100">#FF8A80</color>
     <color name="red_600">#E53935</color>
     <color name="red_700">#D32F2F</color>
     <color name="red_800">#C62828</color>
@@ -27,9 +36,11 @@
     <color name="light_blue_700">#0288D1</color>
     <color name="light_blue_800">#0277BD</color>
     <color name="light_blue_900">#01579B</color>
+    <color name="light_blue_900_opacity_70">#F201579B</color>
 
     <!-- Blue gray -->
     <color name="blue_gray_200">#B0BEC5</color>
+    <color name="blue_gray_200_opacity_70">#F2B0BEC5</color>
     <color name="blue_gray_500">#607D8B</color>
     <color name="blue_gray_700">#455A64</color>
     <color name="blue_gray_800">#37474F</color>

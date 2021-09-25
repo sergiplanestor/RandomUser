@@ -4,12 +4,28 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.splanes.presentation.R
+import com.splanes.presentation.component.snackbar.view.SnackBar
+import com.splanes.presentation.component.snackbar.model.SnackBarModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-abstract class DiffUtilAdapter<T, V : View>(open val items: MutableList<T>) : RecyclerView.Adapter<ViewWrapper<V>>() {
+abstract class DiffUtilAdapter<T, V : View>(open val items: MutableList<T>) :
+    RecyclerView.Adapter<ViewWrapper<V>>() {
+
+    protected var recentlyRemoved: Pair<Int, T>? = null
+    protected open val undoSnackBarModel: SnackBarModel =
+        SnackBarModel.buildGeneric(
+            iconRes = R.drawable.ic_undo,
+            message = R.string.dashboard_undo_item_removed_msg,
+            action = R.string.action_undo,
+            onActionClick = ::performUndoRemoved
+        )
+
+
+    private var recyclerView: RecyclerView? = null
 
     // Abstract methods
 
@@ -31,6 +47,16 @@ abstract class DiffUtilAdapter<T, V : View>(open val items: MutableList<T>) : Re
     override fun onBindViewHolder(holder: ViewWrapper<V>, position: Int) =
         onBindView(holder.view, position)
 
+    override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
+        super.onAttachedToRecyclerView(recyclerView)
+        this.recyclerView = recyclerView
+    }
+
+    override fun onDetachedFromRecyclerView(recyclerView: RecyclerView) {
+        super.onDetachedFromRecyclerView(recyclerView)
+        this.recyclerView = null
+    }
+
     // Public (and overridable) methods
 
     open fun update(newData: List<T>) {
@@ -47,8 +73,28 @@ abstract class DiffUtilAdapter<T, V : View>(open val items: MutableList<T>) : Re
         }
     }
 
-    // DiffUtil methods
+    open fun remove(position: Int) {
+        recentlyRemoved = position to items[position]
+        items.removeAt(position)
+        recyclerView?.scrollToPosition(position)
+        notifyItemRemoved(position)
+        showUndoRemoved()
+    }
 
+    protected open fun showUndoRemoved() {
+        recyclerView?.let { SnackBar.show(it, undoSnackBarModel) } ?: run { recentlyRemoved = null }
+    }
+
+    protected open fun performUndoRemoved() {
+        recentlyRemoved?.let {
+            items.add(it.first, it.second)
+            recyclerView?.scrollToPosition(it.first)
+            notifyItemInserted(it.first)
+            recentlyRemoved = null
+        }
+    }
+
+    // DiffUtil methods
     private suspend fun calculateDiffResult(newData: List<T>): DiffUtil.DiffResult =
         withContext(Dispatchers.IO) {
             DiffUtil.calculateDiff(object : DiffUtil.Callback() {

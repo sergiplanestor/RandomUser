@@ -68,14 +68,14 @@
     </style>
 
     <style name="TextAppearance.Button" parent="TextAppearance.MaterialComponents.Button">
-        <item name="fontFamily">@font/lato_regular</item>
-        <item name="android:fontFamily">@font/lato_regular</item>
+        <item name="fontFamily">@font/roboto_medium</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
         <item name="android:textSize">@dimen/dimen_15sp</item>
     </style>
 
     <style name="TextAppearance.Caption" parent="TextAppearance.MaterialComponents.Caption">
-        <item name="fontFamily">@font/lato_thin</item>
-        <item name="android:fontFamily">@font/lato_thin</item>
+        <item name="fontFamily">@font/roboto_medium</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
         <item name="android:textSize">@dimen/dimen_13sp</item>
     </style>
 

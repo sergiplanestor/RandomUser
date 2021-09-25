@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="dashboard_title">Dashboard</string>
+    <string name="dashboard_subtitle">Find your user</string>
+    <string name="dashboard_undo_item_removed_msg">User removed!</string>
+
+</resources>

@@ -5,4 +5,8 @@
     <dimen name="image_large">@dimen/dimen_160dp</dimen>
     <dimen name="image_default">@dimen/dimen_100dp</dimen>
 
+    <dimen name="icon_small">@dimen/dimen_20dp</dimen>
+    <dimen name="icon_medium">@dimen/dimen_26dp</dimen>
+    <dimen name="icon_large">@dimen/dimen_32dp</dimen>
+
 </resources>
