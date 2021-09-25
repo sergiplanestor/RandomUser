@@ -11,12 +11,15 @@ object DateMapper {
 
     fun mapToDateModel(response: String?): DateModel? =
         response?.let {
-            sdfOf(RESPONSE_FORMAT).parse(it)?.run {
-                DateModel(
-                    millis = time,
-                    formatted = sdfOf(MODEL_FORMAT).format(time)
-                )
-            }
+            sdfOf(RESPONSE_FORMAT).parse(it)?.run { mapToDateModel(time) }
+        }
+
+    fun mapToDateModel(millis: Long?): DateModel? =
+        millis?.let {
+            DateModel(
+                millis = it,
+                formatted = sdfOf(MODEL_FORMAT).format(it)
+            )
         }
 
     private fun sdfOf(pattern: String): SimpleDateFormat =

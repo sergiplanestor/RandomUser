@@ -1,6 +1,6 @@
 package com.splanes.domain.feature.user.model
 
-enum class UserGender(private val apiName: String) {
+enum class UserGender(val apiName: String) {
     MALE(apiName = "male"),
     FEMALE(apiName = "female"),
     UNKNOWN(apiName = "");

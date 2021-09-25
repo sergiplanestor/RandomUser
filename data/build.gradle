@@ -18,6 +18,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
 
+        buildConfigField "String", "APP_DB_NAME", project.property('users_database')
         buildConfigField "String", "RAND_USERS_BASE_URL", project.property('rand_users_api_base_url')
     }
 
@@ -66,4 +67,10 @@ dependencies {
 
     // Coroutines
     implementation lib.kotlinCoroutines
+
+    // Room
+    // Set as 'api' in order to let app module access to it and dagger can have visibility
+    api lib.room
+    api lib.roomKtx
+    kapt lib.roomAnnotation
 }

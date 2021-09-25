@@ -7,6 +7,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class UserModel(
+    val id: String,
     val gender: UserGender,
     val title: String,
     val name: String,

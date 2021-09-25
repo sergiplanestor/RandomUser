@@ -52,7 +52,12 @@ ext {
             okhttpLogginInterceptor   : "com.squareup.okhttp3:logging-interceptor:${versions.okhttp3}",
 
             // Glide
-            glide                     : "com.github.bumptech.glide:glide:${versions.glide}"
+            glide                     : "com.github.bumptech.glide:glide:${versions.glide}",
+
+            // Room
+            room                      : "androidx.room:room-runtime:${versions.room}",
+            roomKtx                   : "androidx.room:room-ktx:${versions.roomKtx}",
+            roomAnnotation            : "androidx.room:room-compiler:${versions.room}"
     ]
 
     // Cross test-type
