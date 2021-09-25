@@ -12,9 +12,11 @@
     <!-- Red -->
     <color name="red_A100">#FF8A80</color>
     <color name="red_600">#E53935</color>
+    <color name="red_600_opacity_70">#F2E53935</color>
     <color name="red_700">#D32F2F</color>
     <color name="red_800">#C62828</color>
     <color name="red_900">#B71C1C</color>
+    <color name="red_900_opacity_70">#F2B71C1C</color>
 
     <!-- Indigo -->
     <color name="indigo_800">#283593</color>
@@ -29,6 +31,7 @@
     <color name="cyan_300">#4DD0E1</color>
     <color name="cyan_400">#26C6DA</color>
     <color name="cyan_700">#0097A7</color>
+    <color name="cyan_700_opacity_70">#F20097A7</color>
     <color name="cyan_900">#006064</color>
     <color name="cyan_A700">#00B8D4</color>
 
@@ -42,6 +45,7 @@
     <color name="blue_gray_200">#B0BEC5</color>
     <color name="blue_gray_200_opacity_70">#F2B0BEC5</color>
     <color name="blue_gray_500">#607D8B</color>
+    <color name="blue_gray_500_opacity_70">#F2607D8B</color>
     <color name="blue_gray_700">#455A64</color>
     <color name="blue_gray_800">#37474F</color>
     <color name="blue_gray_900">#263238</color>
@@ -49,6 +53,7 @@
     <!-- black -->
     <color name="black">#FF000000</color>
     <color name="black_opacity_50">#80000000</color>
+    <color name="black_opacity_65">#A6000000</color>
 
     <!-- White -->
     <color name="white">#FFFFFFFF</color>

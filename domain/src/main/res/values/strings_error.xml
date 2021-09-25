@@ -2,5 +2,7 @@
 <resources>
 
     <string name="error_default_message">Oops! Seems that something went wrong. Try it later please!</string>
+    <string name="error_no_internet_message">Ouch! Your device does not have internet connection :(</string>
+    <string name="error_timeout_message">Request timeout reached :|\n It may be us, try again please!</string>
 
 </resources>

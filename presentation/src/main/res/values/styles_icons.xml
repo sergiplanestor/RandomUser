@@ -4,8 +4,8 @@
     <style name="Icon">
         <item name="android:layout_width">@dimen/icon_medium</item>
         <item name="android:layout_height">@dimen/icon_medium</item>
-        <item name="android:tint">@color/secondary</item>
-        <item name="tint">@color/secondary</item>
+        <item name="android:tint">@color/selector_icon_default_tint</item>
+        <item name="tint">@color/selector_icon_default_tint</item>
         <item name="android:background">?android:attr/selectableItemBackgroundBorderless</item>
         <item name="background">?android:attr/selectableItemBackgroundBorderless</item>
     </style>
