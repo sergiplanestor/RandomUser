@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_finder_background"
+    android:paddingHorizontal="@dimen/margin_default"
+    android:paddingVertical="@dimen/margin_default">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/finder_input"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/dashboard_finder_hint"
+        app:endIconDrawable="@drawable/ic_clear_input"
+        app:endIconMode="clear_text"
+        app:helperText="@string/dashboard_finder_helper"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/finder_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:imeOptions="actionSearch"
+            android:inputType="textCapSentences" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/finder_query_type_group"
+        style="@style/Widget.MaterialComponents.ChipGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/finder_input">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/finder_query_type_name"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/dashboard_query_type_name"
+            android:textAppearance="@style/TextAppearance.Body2"
+            app:checkedIcon="@drawable/ic_success_rounded" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/finder_query_type_surname"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/dashboard_query_type_surname"
+            android:textAppearance="@style/TextAppearance.Body2"
+            app:checkedIcon="@drawable/ic_success_rounded" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/finder_query_type_email"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/dashboard_query_type_email"
+            android:textAppearance="@style/TextAppearance.Body2"
+            app:checkedIcon="@drawable/ic_success_rounded" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

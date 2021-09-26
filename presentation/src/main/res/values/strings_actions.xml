@@ -3,5 +3,6 @@
 
     <string name="action_undo">Undo</string>
     <string name="action_add">Add</string>
+    <string name="action_find">Find</string>
 
 </resources>

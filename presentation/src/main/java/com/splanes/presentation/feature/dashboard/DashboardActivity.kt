@@ -2,6 +2,8 @@ package com.splanes.presentation.feature.dashboard
 
 import android.content.Intent
 import android.graphics.drawable.ColorDrawable
+import android.view.Menu
+import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
@@ -11,9 +13,9 @@ import com.splanes.domain.feature.user.model.UserModel
 import com.splanes.presentation.R
 import com.splanes.presentation.common.base.BaseActivity
 import com.splanes.presentation.common.base.adapter.SwipeToDismissCallback
-import com.splanes.presentation.common.util.colorOf
-import com.splanes.presentation.common.util.observe
+import com.splanes.presentation.common.util.*
 import com.splanes.presentation.common.util.view.addOnScrollStateChanged
+import com.splanes.presentation.component.finder.FinderView
 import com.splanes.presentation.databinding.ActivityDashboardBinding
 import com.splanes.presentation.feature.dashboard.adapter.UserAdapter
 import com.splanes.presentation.feature.detail.UserDetailActivity
@@ -26,6 +28,7 @@ class DashboardActivity : BaseActivity<ActivityDashboardBinding>(
 ) {
 
     private val viewModel: DashboardViewModel by viewModels()
+    private var menu: Menu? = null
     private lateinit var adapter: UserAdapter
 
     companion object {
@@ -37,9 +40,10 @@ class DashboardActivity : BaseActivity<ActivityDashboardBinding>(
     }
 
     override fun onBindUi() {
-        actionBar?.setBackgroundDrawable(ColorDrawable(colorOf(R.color.primary)))
+        supportActionBar?.setBackgroundDrawable(ColorDrawable(colorOf(R.color.primary)))
         initAdapter()
         initListeners()
+        binding.emptyStateView.bind(getString(R.string.dashboard_query_no_results))
     }
 
     override fun onSubscribeUi() {
@@ -47,11 +51,28 @@ class DashboardActivity : BaseActivity<ActivityDashboardBinding>(
         observe(viewModel.failureObservable) {
             showFeedback(isPositive = false, messageRes = it)
         }
-        observe(viewModel.usersObservable) { adapter.update(it) }
+        observe(viewModel.usersObservable) {
+            adapter.update(it)
+            onEmptyStateChanged(isShowing = it.isEmpty())
+        }
     }
 
     override fun onLoadData() {
         viewModel.getUsers()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        this.menu = menu
+        menuInflater.inflate(R.menu.menu_dashboard, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.menu_filter) {
+            onFinderMenuClick()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun initAdapter() {
@@ -62,9 +83,11 @@ class DashboardActivity : BaseActivity<ActivityDashboardBinding>(
             ::onUserRemovedUndo
         ).also { adapter = it }
         ItemTouchHelper(SwipeToDismissCallback(adapter)).attachToRecyclerView(binding.usersRecyclerView)
+        onEmptyStateChanged(isShowing = true)
     }
 
     private fun initListeners() {
+        binding.finderView.bind(onSubmitQuery = ::onSubmitQuery, onClearQuery = ::onClearQuery)
         binding.loadButton.setOnClickListener { viewModel.fetchUsers() }
         binding.usersRecyclerView.addOnScrollStateChanged { newState ->
             binding.loadButton.animate()
@@ -82,5 +105,32 @@ class DashboardActivity : BaseActivity<ActivityDashboardBinding>(
 
     private fun onUserRemovedUndo(model: UserModel) {
         viewModel.insertUser(model)
+    }
+
+    private fun onFinderMenuClick() {
+        if (binding.finderView.isVisible) {
+            binding.finderView.isVisible = false
+            menu?.changeMenuIcon(R.id.menu_filter, drawableOf(R.drawable.ic_search_user).apply {
+                applyTint(colorOf(R.color.white))
+            })
+        } else {
+            binding.finderView.isVisible = true
+            menu?.changeMenuIcon(R.id.menu_filter, drawableOf(R.drawable.ic_search_off).apply {
+                applyTint(colorOf(R.color.red_error_background))
+            })
+        }
+    }
+
+    private fun onSubmitQuery(query: String, types: List<FinderView.QueryType>) {
+        viewModel.applyQuery(query, types)
+    }
+
+    private fun onClearQuery() {
+        viewModel.applyQuery("", emptyList())
+    }
+
+    private fun onEmptyStateChanged(isShowing: Boolean) {
+        binding.usersRecyclerView.isVisible = isShowing.not()
+        binding.emptyStateView.isVisible = isShowing
     }
 }

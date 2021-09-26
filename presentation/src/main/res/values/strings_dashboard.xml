@@ -4,5 +4,11 @@
     <string name="dashboard_title">Dashboard</string>
     <string name="dashboard_subtitle">Find your user</string>
     <string name="dashboard_undo_item_removed_msg">User removed!</string>
+    <string name="dashboard_finder_hint">Apply filter</string>
+    <string name="dashboard_finder_helper">Select which kind of search you want to do (options are not exclusive!)</string>
+    <string name="dashboard_query_type_name">Name</string>
+    <string name="dashboard_query_type_surname">Surname</string>
+    <string name="dashboard_query_type_email">Email</string>
+    <string name="dashboard_query_no_results">Oops, seems that there are no results :|</string>
 
 </resources>

@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     android:background="@color/screen_background">
 
+    <com.splanes.presentation.component.finder.FinderView
+        android:id="@+id/finder_view"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/users_recycler_view"
         android:layout_width="@dimen/dimen_0dp"
@@ -16,7 +26,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/finder_view"
         tools:itemCount="10"
         tools:listitem="@layout/component_overview_user_view" />
 
@@ -28,6 +38,8 @@
         android:layout_marginEnd="@dimen/margin_small"
         android:layout_marginBottom="@dimen/margin_extra"
         android:background="@drawable/shape_button_background_translucent"
+        android:paddingStart="@dimen/margin_medium"
+        android:paddingEnd="@dimen/margin_big"
         android:text="@string/action_add"
         android:textAppearance="@style/TextAppearance.Button"
         android:textColor="@color/text_secondary_accent"
@@ -35,13 +47,22 @@
         app:icon="@drawable/ic_add_users"
         app:iconPadding="@dimen/margin_medium"
         app:iconTint="@color/primary_accent"
-        android:paddingStart="@dimen/margin_medium"
-        android:paddingEnd="@dimen/margin_big"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:drawablePadding="@dimen/margin_medium"
         tools:drawableStart="@drawable/ic_add_users" />
+
+    <com.splanes.presentation.component.emptystate.EmptyStateView
+        android:id="@+id/empty_state_view"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginVertical="@dimen/margin_extra"
+        app:layout_constraintTop_toBottomOf="@id/finder_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/load_button" />
 
     <com.splanes.presentation.component.loader.LoaderView
         android:id="@+id/loader_view"
