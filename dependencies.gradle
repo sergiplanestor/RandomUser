@@ -62,7 +62,7 @@ ext {
 
     // Cross test-type
     testGeneral = [
-            truth              : "androidx.test.ext:truth:${testing.androidxTest}",
+            androidxTruth      : "androidx.test.ext:truth:${testing.androidxTruth}",
             androidxCoreTest   : "androidx.arch.core:core-testing:${testing.androidxCoreTest}",
             kotlinCoroutineTest: "org.jetbrains.kotlinx:kotlinx-coroutines-test:${testing.kotlinCoroutineTest}",
             hilt               : "com.google.dagger:hilt-android-testing:${versions.hilt}",
@@ -70,21 +70,13 @@ ext {
     ]
 
     // Unit test
-    testUnit = [
-            junitBom: "org.junit:junit-bom:${testing.junitBom}",
-            junit5  : "org.junit.jupiter:junit-jupiter",
-            mockK   : "io.mockk:mockk:${testing.mockK}"
-    ]
+    testUnit = [mockK: "io.mockk:mockk:${testing.mockK}"]
 
     // Instrumental test
     testIntegration = [
             junit4             : "junit:junit:${testing.junit4}",
-            androidxJUnitExt   : "androidx.test.ext:junit:${testing.androidxJUnitExt}",
             androidxJUnitKtxExt: "androidx.test.ext:junit-ktx:${testing.androidxJUnitExt}",
             mockK              : "io.mockk:mockk-android:${testing.mockK}"
     ]
-    testUI = [
-            espressoCore: "androidx.test.espresso:espresso-core:${testing.espresso}"
-    ]
-
+    testUI = [espressoCore: "androidx.test.espresso:espresso-core:${testing.espresso}"]
 }

@@ -38,6 +38,13 @@ android {
         exclude "META-INF/AL2.0"
         exclude "META-INF/LGPL2.1"
     }
+    testOptions {
+        packagingOptions {
+            jniLibs {
+                useLegacyPackaging true
+            }
+        }
+    }
 }
 
 dependencies {
@@ -56,21 +63,13 @@ dependencies {
     implementation lib.androidxAppCompat
 
     // Testing
-    testImplementation testGeneral.truth
-    testImplementation testGeneral.androidxCoreTest
-    testImplementation testGeneral.kotlinCoroutineTest
-    testImplementation testUnit.junitBom
-    testImplementation testUnit.junit5
-    testImplementation testUnit.mockK
-
     kaptAndroidTest testGeneral.hiltCompiler
-    androidTestImplementation testGeneral.truth
+    androidTestImplementation testGeneral.androidxTruth
     androidTestImplementation testGeneral.androidxCoreTest
     androidTestImplementation testGeneral.kotlinCoroutineTest
     androidTestImplementation testGeneral.hilt
-    androidTestImplementation testIntegration.junit4
-    androidTestImplementation testIntegration.androidxJUnitExt
-    androidTestImplementation testIntegration.androidxJUnitKtxExt
     androidTestImplementation testIntegration.mockK
+    androidTestImplementation testIntegration.junit4
+    androidTestImplementation testIntegration.androidxJUnitKtxExt
     androidTestImplementation testUI.espressoCore
 }

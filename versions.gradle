@@ -49,14 +49,12 @@ ext {
     testing = [
             // JUnit 4
             junit4          : "4.13.2",
-            // JUnit 5 (bom)
-            junitBom        : "5.7.2",
 
             // MockK
             mockK           : "1.12.0",
 
             // Android X test
-            androidxTest    : "1.5.0-alpha01",
+            androidxTruth    : "1.5.0-alpha01",
             androidxCoreTest: "2.1.0",
             androidxJUnitExt: "1.1.4-alpha01",
 
