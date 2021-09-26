@@ -3,7 +3,7 @@ package com.splanes.presentation.common.util.anim
 import android.animation.ObjectAnimator
 import android.view.View
 import androidx.core.animation.addListener
-import com.splanes.presentation.common.util.list.popFirst
+import com.splanes.presentation.common.util.list.removeFirst
 
 private const val X_ON_START = 0f
 private const val X_BOUNCE_MEDIUM = 40f
@@ -21,7 +21,7 @@ fun View.bounce(startDelay: Long = 0, iteration: Int = 0) {
         X_BOUNCE_MIN_2
     )
     for (i in 0 until iteration) {
-        list = list.popFirst().toMutableList()
+        list = list.removeFirst().toMutableList()
     }
     objectAnimOfFloat(property = "translationX", X_ON_START, list.first(), X_ON_START).apply {
         if (startDelay > 0 && list.size == 4) this.startDelay = startDelay
