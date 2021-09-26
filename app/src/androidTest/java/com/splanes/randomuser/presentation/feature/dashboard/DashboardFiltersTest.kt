@@ -1,6 +1,7 @@
 package com.splanes.randomuser.presentation.feature.dashboard
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.common.truth.Truth
 import com.splanes.domain.common.net.Response
 import com.splanes.domain.feature.user.model.UserModel
@@ -27,7 +28,7 @@ import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 
 @ExperimentalCoroutinesApi
-@RunWith(JUnit4::class)
+@RunWith(AndroidJUnit4::class)
 class DashboardFiltersTest {
 
     @MockK
