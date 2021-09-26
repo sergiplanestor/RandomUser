@@ -61,37 +61,30 @@ ext {
     ]
 
     // Cross test-type
-    test = [
-            // Truth
-            truth: "androidx.test.ext:truth:${testing.androidxTest}"
+    testGeneral = [
+            truth              : "androidx.test.ext:truth:${testing.androidxTest}",
+            androidxCoreTest   : "androidx.arch.core:core-testing:${testing.androidxCoreTest}",
+            kotlinCoroutineTest: "org.jetbrains.kotlinx:kotlinx-coroutines-test:${testing.kotlinCoroutineTest}",
+            hilt               : "com.google.dagger:hilt-android-testing:${versions.hilt}",
+            hiltCompiler       : "com.google.dagger:hilt-android-compiler:${versions.hilt}"
     ]
 
     // Unit test
     testUnit = [
-            // JUnit 5
             junitBom: "org.junit:junit-bom:${testing.junitBom}",
             junit5  : "org.junit.jupiter:junit-jupiter",
-
-            // MockK
             mockK   : "io.mockk:mockk:${testing.mockK}"
     ]
 
     // Instrumental test
     testIntegration = [
-            // JUnit 4
             junit4             : "junit:junit:${testing.junit4}",
-
-            // Android X Test
-            androidxJUnitExt   : "androidx.test.ext:junit:${versions.androidxJUnitExt}",
-            androidxJUnitKtxExt: "androidx.test.ext:junit-ktx:${versions.androidxJUnitExt}",
-
-            // MockK
+            androidxJUnitExt   : "androidx.test.ext:junit:${testing.androidxJUnitExt}",
+            androidxJUnitKtxExt: "androidx.test.ext:junit-ktx:${testing.androidxJUnitExt}",
             mockK              : "io.mockk:mockk-android:${testing.mockK}"
     ]
     testUI = [
-            // Espresso: Core + Accessibility
-            espressoCore         : "androidx.test.espresso:espresso-core:${testing.espresso}",
-            espressoAccessibility: "androidx.test.espresso:espresso-accessibility:${testing.espresso}"
+            espressoCore: "androidx.test.espresso:espresso-core:${testing.espresso}"
     ]
 
 }

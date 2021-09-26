@@ -18,7 +18,6 @@ ext {
             androidxHiltViewModel    : "1.0.0-alpha03",
             androidxHiltWorkManager  : "1.0.0",
             androidxHiltCompiler     : "1.0.0",
-            androidxSecurity         : "1.1.0-alpha03",
 
             // Kotlin Coroutines
             kotlinCoroutines         : "1.5.1",
@@ -58,10 +57,14 @@ ext {
 
             // Android X test
             androidxTest    : "1.5.0-alpha01",
+            androidxCoreTest: "2.1.0",
             androidxJUnitExt: "1.1.4-alpha01",
 
             // Espresso
             espresso        : "3.5.0-alpha01",
+
+            // Coroutine Test
+            kotlinCoroutineTest : "1.4.3"
     ]
 
 }
