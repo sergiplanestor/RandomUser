@@ -16,6 +16,16 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/user_count_view"
+        style="@style/Text.SingleLine.WidthWrap"
+        android:textAppearance="@style/TextAppearance.Subtitle1"
+        android:textColor="@color/text_primary"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginVertical="@dimen/margin_medium"
+        app:layout_constraintTop_toBottomOf="@id/finder_view"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/users_recycler_view"
         android:layout_width="@dimen/dimen_0dp"
@@ -26,7 +36,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/finder_view"
+        app:layout_constraintTop_toBottomOf="@id/user_count_view"
         tools:itemCount="10"
         tools:listitem="@layout/component_overview_user_view" />
 

@@ -3,6 +3,7 @@
 
     <string name="dashboard_title">Dashboard</string>
     <string name="dashboard_subtitle">Find your user</string>
+    <string name="dashboard_display_user_count">Showing %s results</string>
     <string name="dashboard_undo_item_removed_msg">User removed!</string>
     <string name="dashboard_finder_hint">Apply filter</string>
     <string name="dashboard_finder_helper">Select which kind of search you want to do (options are not exclusive!)</string>

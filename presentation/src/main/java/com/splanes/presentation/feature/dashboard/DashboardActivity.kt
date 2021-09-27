@@ -53,6 +53,7 @@ class DashboardActivity : BaseActivity<ActivityDashboardBinding>(
         }
         observe(viewModel.usersObservable) {
             adapter.update(it)
+            updateCounter(it.size)
             onEmptyStateChanged(isShowing = it.isEmpty())
         }
     }
@@ -101,10 +102,12 @@ class DashboardActivity : BaseActivity<ActivityDashboardBinding>(
 
     private fun onUserRemoved(model: UserModel) {
         viewModel.removeUser(model)
+        updateCounter(adapter.itemCount)
     }
 
     private fun onUserRemovedUndo(model: UserModel) {
         viewModel.insertUser(model)
+        updateCounter(adapter.itemCount)
     }
 
     private fun onFinderMenuClick() {
@@ -130,7 +133,15 @@ class DashboardActivity : BaseActivity<ActivityDashboardBinding>(
     }
 
     private fun onEmptyStateChanged(isShowing: Boolean) {
+        binding.userCountView.isVisible = isShowing.not()
         binding.usersRecyclerView.isVisible = isShowing.not()
         binding.emptyStateView.isVisible = isShowing
+    }
+
+    private fun updateCounter(count: Int) {
+        binding.userCountView.text = getString(
+            R.string.dashboard_display_user_count,
+            count.toString()
+        )
     }
 }

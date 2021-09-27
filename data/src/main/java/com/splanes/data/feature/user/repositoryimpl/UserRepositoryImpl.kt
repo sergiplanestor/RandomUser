@@ -48,12 +48,18 @@ class UserRepositoryImpl @Inject constructor(
         }
 
     private suspend fun fetchAndStoreUsers(num: Int) {
+        val existingUsers = localDataSource.fetchUsers()
         val removedUsers = localDataSource.fetchRemovedUsers()
-        networkDataSource.fetchUsers(num)
+        val results = networkDataSource.fetchUsers(num)
             ?.let(UserMapper::mapToUserModel)
             ?.filterNot { net -> removedUsers.any { net.id == it.id } }
+            ?.filterNot { net -> existingUsers.any { net.id == it.id } }
             ?.distinctBy { it.id }
             ?.sortedWith(compareBy { it.name })
             ?.also { localDataSource.insertUsers(it.map(UserMapper::mapToUserEntity)) }
+            ?.size ?: 0
+        if (results < num) {
+            fetchAndStoreUsers(num = num - results)
+        }
     }
 }

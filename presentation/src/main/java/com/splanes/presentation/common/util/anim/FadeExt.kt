@@ -19,14 +19,13 @@ inline fun View.fadeInOut(
     crossinline onEnd: () -> Unit = {},
     noinline onUpdated: ((Float) -> Unit)? = null,
 ): ViewPropertyAnimator {
-    val alphaAtStart = if (isShowing) 0f else 1f
+    val alphaAtStart = (if (isShowing) 0f else 1f).also { alpha = it }
     return this.animate().alpha(1f - alphaAtStart).apply {
         this.duration = duration
         this.interpolator = interpolator
         if (startDelay > 0) this.startDelay = startDelay
         applyListeners(
             onStart = {
-                alpha = alphaAtStart
                 if (isShowing) isVisible = true
                 onStart()
             },

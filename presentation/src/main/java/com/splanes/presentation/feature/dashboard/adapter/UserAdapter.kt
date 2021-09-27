@@ -33,10 +33,7 @@ class UserAdapter(
         view.bind(
             items[position],
             onClick,
-            onRemoveClick = {
-                onRemove.invoke(items[position])
-                remove(position)
-            }
+            onRemoveClick = { remove(position) }
         )
         if (!isAnimationDone && position == 0) {
             view.bounce(ANIM_DELAY)
@@ -55,8 +52,15 @@ class UserAdapter(
         super.update(newData)
     }
 
+    override fun remove(position: Int) {
+        val model = items[position]
+        super.remove(position)
+        onRemove.invoke(model)
+    }
+
     override fun performUndoRemoved() {
+        val model = recentlyRemoved?.second
         super.performUndoRemoved()
-        recentlyRemoved?.second?.let(onUndoRemove::invoke)
+        model?.let(onUndoRemove::invoke)
     }
 }
