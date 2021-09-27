@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewPropertyAnimator
 import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.core.view.isVisible
-import com.splanes.presentation.common.util.list.popFirst
+import com.splanes.presentation.common.util.list.removeFirst
 
 const val FADE_ANIMATION_DEFAULT_DURATION = 500L
 
@@ -70,10 +70,10 @@ fun List<View>.fadeInOutCascade(
         onStart = onStart,
         onEnd = {
             if (size > 1) {
-                popFirst().fadeInOutCascade(
-                    isShowing = isShowing.popFirst(),
-                    durations = durations.popFirst(),
-                    interpolator = interpolator.popFirst(),
+                removeFirst().fadeInOutCascade(
+                    isShowing = isShowing.removeFirst(),
+                    durations = durations.removeFirst(),
+                    interpolator = interpolator.removeFirst(),
                     onEnd = onEnd
                 )
             } else {

@@ -5,6 +5,7 @@ import android.graphics.drawable.ColorDrawable
 import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
+import androidx.annotation.VisibleForTesting
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -27,9 +28,12 @@ class DashboardActivity : BaseActivity<ActivityDashboardBinding>(
     ActivityDashboardBinding::inflate
 ) {
 
-    private val viewModel: DashboardViewModel by viewModels()
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    val viewModel: DashboardViewModel by viewModels()
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    lateinit var adapter: UserAdapter
+
     private var menu: Menu? = null
-    private lateinit var adapter: UserAdapter
 
     companion object {
         fun start(activity: BaseActivity<*>) {

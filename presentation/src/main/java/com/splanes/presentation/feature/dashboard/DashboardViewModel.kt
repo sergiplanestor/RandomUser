@@ -59,7 +59,7 @@ class DashboardViewModel @Inject constructor(
 
     private fun handleUsers(users: List<UserModel>) {
         usersMutableObservable.value =
-            if (currentQuery.isBlank()) {
+            if (currentQuery.isBlank() || currentQueryTypes.isEmpty()) {
                 users
             } else {
                 mutableListOf<UserModel>().apply {
